@@ -7,6 +7,7 @@ class Common:
         self.browser.get(url)
         assert self.browser.current_url == url
         return self.browser
+    
 
     def close_browser(self):
         self.browser.close()

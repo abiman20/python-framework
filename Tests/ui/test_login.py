@@ -5,6 +5,7 @@ from Business_Functions.ui.common import Common
 from Business_Functions.ui.login_page import Login_page
 from Business_Functions.ui.product_page import Product_page
 
+
 class Test_login:
 
     # @before_test
@@ -25,6 +26,7 @@ class Test_login:
         # Then: I validate if login is successful
         productpage = Product_page(self.browser)
         productpage.verify_product_page()
+        productpage.logout()
 
     def test_invalid_login(self):
         # Given : im on login page
@@ -33,6 +35,14 @@ class Test_login:
         loginpage.login_saucelab("xyz","secret_sauce")
         # Then : I validate whether login is succesfull or not
         loginpage.verify_invalid_login()
+
+    def test_add_to_cart(self):
+        loginpage = Login_page(self.browser)
+        loginpage.login_saucelab("standard_user","secret_sauce")
+        productpage = Product_page(self.browser)
+        productpage.verify_product_page()
+        Product_page.item_to_add()
+
 
     # def test_product_page(self):
     #     self.test_valid_login()
