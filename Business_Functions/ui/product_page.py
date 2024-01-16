@@ -26,9 +26,11 @@ class Product_page():
         assert button_text == "Remove",button_text
         cart_count = self.browser.find_element(By.CLASS_NAME , 'shopping_cart_badge').text
         assert cart_count == "1",cart_count
-        product_name = ?
-        product_description = ?
-        return product_name, product_description
+        product_name = self.browser.find_element(By.CLASS_NAME ,"inventory_item_name").text
+        product_description = self.browser.find_element(By.CLASS_NAME , "inventory_item_desc").text
+        product_price = self.browser.find_element(By.CLASS_NAME ,"inventory_item_price").text
+        #product_quantity = self.browser.find_element(By.XPATH ,"//div[@id='']").text
+        return product_name, product_description,product_price
 
     def go_to_cart(self):
          self.browser.find_element(By.ID ,"shopping_cart_container").click()
