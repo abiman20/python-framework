@@ -20,6 +20,7 @@ class Test_purchase:
         loginpage.login_saucelab("standard_user","secret_sauce")
         productpage = Product_page(self.browser)
         productpage.verify_product_page()
+        productpage.product_search()
         #When : i add a product to cart
         product_name,product_description,product_price = productpage.add_product_to_cart()
         productpage.go_to_cart()
@@ -29,6 +30,8 @@ class Test_purchase:
         Cart_page.continue_shopping(self)
         productpage.verify_product_page()
         productpage.logout()
+
+
 
 
     

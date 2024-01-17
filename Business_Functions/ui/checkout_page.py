@@ -30,6 +30,3 @@ class Checkout_page:
         assert self.browser.current_url == checkout_next_step, self.browser.current_url +' is not equal to ' + checkout_next_step
         self.browser.find_element(By.ID, "finish").click()
 
-
-
-

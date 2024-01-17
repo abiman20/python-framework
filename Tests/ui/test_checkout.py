@@ -12,8 +12,8 @@ class Test_checkout:
         self.common = Common()
         self.browser = self.common.open_browser()
 
-    # def teardown_method(self):
-    #     self.common.close_browser()
+    def teardown_method(self):
+        self.common.close_browser()
 
 
     def test_product_checkout(self):

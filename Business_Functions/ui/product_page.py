@@ -15,6 +15,13 @@ class Product_page():
         title = self.browser.find_element(By.XPATH,'//div[contains(text(),"Swag Labs")]').text
         assert title == "Swag Labs", title
 
+    
+    def product_catalogue(self):
+        inventory_item_list = self.browser.find_elements(By.CLASS_NAME, "inventory_item")
+        for inventory_item in inventory_item_list:
+           assert inventory_item.is_displayed(),inventory_item
+
+
     def logout(self):
         self.browser.find_element(By.XPATH,"//button[@id='react-burger-menu-btn']").click()
         WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH,"//a[@id='logout_sidebar_link']")))
@@ -31,6 +38,14 @@ class Product_page():
         product_price = self.browser.find_element(By.CLASS_NAME ,"inventory_item_price").text
         #product_quantity = self.browser.find_element(By.XPATH ,"//div[@id='']").text
         return product_name, product_description,product_price
+    
+
+
+
+
+        
+        
+
 
     def go_to_cart(self):
          self.browser.find_element(By.ID ,"shopping_cart_container").click()
